@@ -1,7 +1,6 @@
 package caseshift
 
 import (
-	"fmt"
 	"regexp"
 	"strings"
 )
@@ -11,8 +10,6 @@ func PascalCase(text string) string {
 	result := ""
 
 	for _, word := range subWords {
-		fmt.Println(" - ")
-		fmt.Println(word)
 		result += strings.Title(string(word))
 	}
 	return result
@@ -39,7 +36,7 @@ func CharIsSeparator(char string, text string) bool {
 	caps := regexp.MustCompile("[A-Z]")
 	otherSeps := regexp.MustCompile("[-)_]")
 
-	if (strings.ToUpper(text) == text) {
+	if strings.ToUpper(text) == text {
 		return otherSeps.MatchString(char)
 	}
 	return caps.MatchString(char) || otherSeps.MatchString(char)
